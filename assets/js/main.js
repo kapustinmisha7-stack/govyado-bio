@@ -59,26 +59,6 @@
     });
 
     // ============================================
-    // Hero fire fade-out on scroll
-    // ============================================
-    const fireWrapper = document.querySelector('.hero__fire-wrapper');
-    const hero = document.querySelector('.hero');
-
-    if (fireWrapper && hero) {
-        function updateFireOpacity() {
-            const scrollY = window.pageYOffset;
-            const heroHeight = hero.offsetHeight;
-            const progress = Math.min(scrollY / (heroHeight * 0.6), 1);
-            fireWrapper.style.opacity = 1 - progress;
-            fireWrapper.style.transform = 'scale(' + (1 + progress * 0.15) + ')';
-        }
-
-        window.addEventListener('scroll', function() {
-            requestAnimationFrame(updateFireOpacity);
-        });
-    }
-
-    // ============================================
     // Smooth scroll for anchor links
     // ============================================
     document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
