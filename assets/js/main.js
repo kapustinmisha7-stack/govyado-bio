@@ -11,6 +11,7 @@
     const navToggle = document.querySelector('.nav__toggle');
     const header = document.querySelector('.header');
     const navLinks = document.querySelectorAll('.nav__link');
+    const backdrop = document.querySelector('.nav__backdrop');
 
     if (navToggle && header) {
         navToggle.addEventListener('click', function() {
@@ -24,6 +25,14 @@
                 document.body.style.overflow = '';
             });
         });
+
+        // Клик по размытому фону также закрывает меню
+        if (backdrop) {
+            backdrop.addEventListener('click', function() {
+                header.classList.remove('nav--open');
+                document.body.style.overflow = '';
+            });
+        }
     }
 
     // ============================================
@@ -258,5 +267,21 @@
     window.addEventListener('scroll', function() {
         requestAnimationFrame(updateActiveNav);
     });
+
+    // ============================================
+    // Interactive Map Overlay
+    // ============================================
+    const mapContainer = document.querySelector('.contacts__map');
+    if (mapContainer) {
+        mapContainer.addEventListener('click', function() {
+            this.classList.add('contacts__map--interactive');
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!mapContainer.contains(e.target)) {
+                mapContainer.classList.remove('contacts__map--interactive');
+            }
+        });
+    }
 
 })();

@@ -15,6 +15,9 @@
 
     <!-- Header -->
     <header class="header">
+        <!-- Бэкдроп для мобильного меню -->
+        <div class="nav__backdrop"></div>
+        
         <div class="header__inner">
             <a href="#" class="logo">
                 <img src="assets/images/logo.svg" alt="Говядо" class="logo__img">
@@ -35,14 +38,6 @@
 
     <!-- Hero Section -->
     <section class="hero" id="hero">
-        <!-- Fire background -->
-        <div class="hero__fire-wrapper">
-            <div class="hero__fire">
-                <img src="assets/images/fire.gif" alt="" aria-hidden="true">
-            </div>
-            <div class="hero__fire-blur"></div>
-        </div>
-
         <div class="hero__bg">
             <div class="hero__bg-overlay"></div>
         </div>
@@ -83,7 +78,7 @@
 
         <!-- Product image -->
         <div class="hero__product">
-            <img src="assets/images/shawarma.png" alt="Шаурма Говядо" class="hero__product-img">
+            <img src="assets/images/shawarma.png" class="hero__product-img" alt="Шаурма">
         </div>
 
         <!-- CTA -->
@@ -93,7 +88,7 @@
         </div>
     </section>
 
-    <!-- Menu Section (Table) -->
+    <!-- Menu Section (Table / Cards on Mobile) -->
     <section class="menu" id="menu">
         <div class="container">
             <h2 class="section-title">Меню</h2>
@@ -181,7 +176,6 @@
                         <div class="gallery__slide"><img src="assets/images/gallery-3.jpg" alt="Интерьер Говядо 3"></div>
                         <div class="gallery__slide"><img src="assets/images/gallery-4.jpg" alt="Интерьер Говядо 4"></div>
                         <div class="gallery__slide"><img src="assets/images/gallery-5.jpg" alt="Интерьер Говядо 5"></div>
-                        <div class="gallery__slide"><img src="assets/images/gallery-6.jpg" alt="Интерьер Говядо 6"></div>
                     </div>
                 </div>
                 <button class="gallery__btn gallery__btn--next" aria-label="Следующее фото">
@@ -212,6 +206,10 @@
                     </div>
                 </div>
                 <div class="contacts__map">
+                    <!-- Защитный слой для предотвращения перехвата скролла -->
+                    <div class="contacts__map-overlay">
+                        <span>Управлять картой</span>
+                    </div>
                     <iframe 
                         src="https://yandex.ru/map-widget/v1/?ll=38.114979%2C55.915311&z=16&pt=38.114979%2C55.915311%2Cpm2rdm" 
                         width="100%" 
