@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Говядо</title>
+    <meta name="description" content="Главная страница">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header__inner">
+            <a href="#" class="logo">
+                <img src="assets/images/logo.svg" alt="Говядо" class="logo__img">
+            </a>
+            <nav class="nav">
+                <a href="#hero" class="nav__link">Главное</a>
+                <a href="#menu" class="nav__link">Меню</a>
+                <a href="#gallery" class="nav__link">Галерея</a>
+                <a href="#contacts" class="nav__link">Контакты</a>
+            </nav>
+            <button class="nav__toggle" aria-label="Открыть меню">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <!-- Fire background -->
+        <div class="hero__fire-wrapper">
+            <div class="hero__fire">
+                <img src="assets/images/fire.gif" alt="" aria-hidden="true">
+            </div>
+            <div class="hero__fire-blur"></div>
+        </div>
+
+        <div class="hero__bg">
+            <div class="hero__bg-overlay"></div>
+        </div>
+
+        <!-- Seamless animated text rows -->
+        <div class="hero__marquee">
+            <div class="marquee-row marquee-row--left">
+                <div class="marquee-track">
+                    <span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span>
+                    <span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span>
+                </div>
+            </div>
+            <div class="marquee-row marquee-row--right">
+                <div class="marquee-track">
+                    <span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span>
+                    <span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span>
+                </div>
+            </div>
+            <div class="marquee-row marquee-row--left">
+                <div class="marquee-track">
+                    <span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span>
+                    <span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span>
+                </div>
+            </div>
+            <div class="marquee-row marquee-row--right">
+                <div class="marquee-track">
+                    <span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span>
+                    <span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span>
+                </div>
+            </div>
+            <div class="marquee-row marquee-row--left">
+                <div class="marquee-track">
+                    <span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span>
+                    <span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span><span>ШАУРМА</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product image -->
+        <div class="hero__product">
+            <img src="assets/images/shawarma.png" alt="Шаурма Говядо" class="hero__product-img">
+        </div>
+
+        <!-- CTA -->
+        <div class="hero__cta">
+            <h1 class="hero__title">МММММ...</h1>
+            <p class="hero__subtitle">о-о-очень вкусная еда,<br>всё благодаря экологически чистой продукции!</p>
+        </div>
+    </section>
+
+    <!-- Menu Section (Table) -->
+    <section class="menu" id="menu">
+        <div class="container">
+            <h2 class="section-title">Меню</h2>
+            <div class="menu__table-wrapper">
+                <table class="menu__table">
+                    <thead>
+                        <tr>
+                            <th>Блюдо</th>
+                            <th>Описание</th>
+                            <th>Цена</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="menu__dish">Шаурма (курица, свинина, баранина)</td>
+                            <td class="menu__desc">Сочное мясо, свежие овощи, фирменный соус</td>
+                            <td class="menu__price">299 ₽</td>
+                        </tr>
+                        <tr>
+                            <td class="menu__dish">Шаверма XL</td>
+                            <td class="menu__desc">Двойная порция мяса для настоящих гурманов</td>
+                            <td class="menu__price">399 ₽</td>
+                        </tr>
+                        <tr>
+                            <td class="menu__dish">Кебаб</td>
+                            <td class="menu__desc">Ароматное мясо на углях с лавашом</td>
+                            <td class="menu__price">349 ₽</td>
+                        </tr>
+                        <tr>
+                            <td class="menu__dish">Донер</td>
+                            <td class="menu__desc">Традиционный рецепт с турецкими специями</td>
+                            <td class="menu__price">329 ₽</td>
+                        </tr>
+                        <tr>
+                            <td class="menu__dish">Говяжий ролл</td>
+                            <td class="menu__desc">Нежная говядина с овощами в ролле</td>
+                            <td class="menu__price">359 ₽</td>
+                        </tr>
+                        <tr>
+                            <td class="menu__dish">Фалафель</td>
+                            <td class="menu__desc">Хрустящий нутовый фалафель с соусом тахини</td>
+                            <td class="menu__price">249 ₽</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="container">
+            <div class="about__content">
+                <h2 class="section-title">Почему Говядо?</h2>
+                <div class="about__features">
+                    <div class="about__feature">
+                        <h3 class="about__feature-title">Экологически чистое мясо</h3>
+                        <p class="about__feature-text">Только проверенные поставщики. Никаких антибиотиков и гормонов роста.</p>
+                    </div>
+                    <div class="about__feature">
+                        <h3 class="about__feature-title">Свежие овощи</h3>
+                        <p class="about__feature-text">Ежедневная доставка овощей от местных фермеров.</p>
+                    </div>
+                    <div class="about__feature">
+                        <h3 class="about__feature-title">Фирменный соус</h3>
+                        <p class="about__feature-text">Секретный рецепт, который невозможно повторить.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <h2 class="section-title">Галерея</h2>
+            <div class="gallery__slider">
+                <button class="gallery__btn gallery__btn--prev" aria-label="Предыдущее фото">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+                <div class="gallery__viewport">
+                    <div class="gallery__track">
+                        <div class="gallery__slide"><img src="assets/images/gallery-1.jpg" alt="Интерьер Говядо 1"></div>
+                        <div class="gallery__slide"><img src="assets/images/gallery-2.jpg" alt="Интерьер Говядо 2"></div>
+                        <div class="gallery__slide"><img src="assets/images/gallery-3.jpg" alt="Интерьер Говядо 3"></div>
+                        <div class="gallery__slide"><img src="assets/images/gallery-4.jpg" alt="Интерьер Говядо 4"></div>
+                        <div class="gallery__slide"><img src="assets/images/gallery-5.jpg" alt="Интерьер Говядо 5"></div>
+                    </div>
+                </div>
+                <button class="gallery__btn gallery__btn--next" aria-label="Следующее фото">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+            </div>
+            <div class="gallery__dots"></div>
+        </div>
+    </section>
+
+    <!-- Contacts / Map Section -->
+    <section class="contacts" id="contacts">
+        <div class="container">
+            <h2 class="section-title">Контакты</h2>
+            <div class="contacts__grid">
+                <div class="contacts__info">
+                    <div class="contacts__item">
+                        <h3 class="contacts__label">Адрес</h3>
+                        <p class="contacts__value">посёлок городского типа Биокомбината, городской округ Лосино-Петровский, Московская область (возле Бристоль через дорогу)</p>
+                    </div>
+                    <div class="contacts__item">
+                        <h3 class="contacts__label">Телефон</h3>
+                        <p class="contacts__value"><a href="tel:+79935955147">+7 (993) 595-51-47</a></p>
+                    </div>
+                    <div class="contacts__item">
+                        <h3 class="contacts__label">Режим работы</h3>
+                        <p class="contacts__value">Ежедневно с 8:00 до 21:30</p>
+                    </div>
+                </div>
+                <div class="contacts__map">
+                    <iframe 
+                        src="https://yandex.ru/map-widget/v1/?ll=38.114979%2C55.915311&z=16&pt=38.114979%2C55.915311%2Cpm2rdm" 
+                        width="100%" 
+                        height="400" 
+                        frameborder="0" 
+                        allowfullscreen="true"
+                        loading="lazy"
+                        title="Карта Яндекс">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <a href="#" class="logo">
+                    <img src="assets/images/logo.svg" alt="Говядо" class="logo__img">
+                </a>
+                <p class="footer__copy">Говядо. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
