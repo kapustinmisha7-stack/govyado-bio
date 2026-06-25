@@ -764,23 +764,33 @@ img {
         padding: 0 16px;
     }
 
-    /* Скрываем часть бегущих строк на мобильных */
-    .hero__marquee .marquee-row:nth-child(even) {
-        display: none !important;
+    /* Возвращаем видимость всех бегущих строк, чтобы они красиво чередовались */
+    .hero__marquee .marquee-row {
+        display: block !important;
     }
 
-    /* Оптимизация расположения блоков на первом экране на мобильных */
+    .hero__marquee {
+        gap: 12px !important; /* Увеличиваем расстояние между строками, чтобы они заполняли фон */
+    }
+
+    /* Главный экран снова занимает всю высоту экрана на мобильных */
     .hero {
-        min-height: auto !important;
-        padding: 100px 16px 40px !important;
+        min-height: 100vh !important;
+        min-height: 100dvh !important;
+        padding-top: 90px !important;
+        padding-bottom: 30px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
     }
 
     .hero__product {
-        margin: 16px 0 !important;
+        margin: 20px 0 !important;
     }
 
     .hero__product-img {
-        width: 180px !important;
+        width: clamp(180px, 35vw, 240px) !important;
     }
 
     .hero__cta {
@@ -788,12 +798,12 @@ img {
     }
 
     .hero__title {
-        font-size: 2rem !important;
+        font-size: clamp(2rem, 6vw, 3rem) !important;
         margin-bottom: 12px !important;
     }
 
     .hero__subtitle {
-        font-size: 0.95rem !important;
+        font-size: clamp(0.95rem, 3.5vw, 1.2rem) !important;
         max-width: 100% !important;
     }
 
@@ -861,13 +871,15 @@ img {
         max-width: 180px;
     }
 
-    /* Гарантированный сброс контраста на планшетах */
+    /* Тонкая настройка бегущих строк на планшетах */
     .marquee-track {
         gap: 24px !important;
     }
 
     .marquee-track span {
-        color: rgba(255, 255, 255, 0.02) !important;
+        color: rgba(255, 255, 255, 0.03) !important;
+        font-size: clamp(2rem, 7vw, 3.5rem) !important;
+        letter-spacing: 6px !important;
     }
 
     .about__features {
@@ -904,7 +916,7 @@ img {
         height: 40px;
     }
 
-    /* Мобильный вид таблицы (карточки) применяется ко всем планшетам и телефонам */
+    /* Мобильный вид таблицы (карточки) */
     .menu__table-wrapper {
         border: none !important;
         border-radius: 0 !important;
@@ -917,7 +929,7 @@ img {
     .menu__table tbody {
         display: block !important;
         width: 100% !important;
-        min-width: 0 !important; /* Важный сброс десктопного min-width: 600px */
+        min-width: 0 !important;
         border-collapse: collapse !important;
     }
 
@@ -925,7 +937,7 @@ img {
         display: none !important;
     }
 
-    /* Надежная верстка строк в виде блоков без использования absolute для основного текста */
+    /* Преобразование tr в блоки со свободной правой зоной под цену */
     .menu__table tbody tr {
         display: block !important;
         width: 100% !important;
@@ -933,7 +945,7 @@ img {
         border: 1px solid rgba(255, 255, 255, 0.05) !important;
         border-radius: 12px !important;
         margin-bottom: 16px !important;
-        padding: 20px 100px 20px 20px !important; /* 100px справа зарезервировано под цену */
+        padding: 20px 100px 20px 20px !important;
         position: relative !important;
         box-sizing: border-box !important;
         text-align: left !important;
@@ -970,7 +982,6 @@ img {
         line-height: 1.4 !important;
     }
 
-    /* Цена размещается абсолютно в зарезервированной зоне 100px справа */
     .menu__price {
         position: absolute !important;
         top: 20px !important;
@@ -994,13 +1005,13 @@ img {
     }
 
     .hero__product-img {
-        width: 170px !important;
+        width: clamp(160px, 45vw, 200px) !important;
     }
 
     .marquee-track span {
-        font-size: 2.2rem !important;
-        letter-spacing: 5px !important;
-        color: rgba(255, 255, 255, 0.02) !important;
+        font-size: clamp(1.8rem, 8vw, 2.5rem) !important;
+        letter-spacing: 4px !important;
+        color: rgba(255, 255, 255, 0.03) !important;
     }
 
     .gallery__slide {
@@ -1031,13 +1042,13 @@ img {
     }
 
     .hero__product-img {
-        width: 150px !important;
+        width: 140px !important;
     }
 
     .marquee-track span {
-        font-size: 1.7rem !important;
+        font-size: 1.5rem !important;
         letter-spacing: 3px !important;
-        color: rgba(255, 255, 255, 0.02) !important;
+        color: rgba(255, 255, 255, 0.03) !important;
     }
 
     .hero__title {
