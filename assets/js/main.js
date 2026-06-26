@@ -26,7 +26,6 @@
             });
         });
 
-        // Клик по размытому фону также закрывает меню
         if (backdrop) {
             backdrop.addEventListener('click', function() {
                 header.classList.remove('nav--open');
@@ -104,7 +103,6 @@
         fadeObserver.observe(el);
     });
 
-    // CSS class trigger
     const style = document.createElement('style');
     style.textContent = '.is-visible { opacity: 1 !important; transform: translateY(0) !important; }';
     document.head.appendChild(style);
@@ -123,7 +121,6 @@
         const totalSlides = gallerySlides.length;
         let autoPlayInterval;
 
-        // Create dots
         gallerySlides.forEach(function(_, index) {
             const dot = document.createElement('button');
             dot.className = 'gallery__dot' + (index === 0 ? ' gallery__dot--active' : '');
@@ -182,7 +179,6 @@
             });
         }
 
-        // Touch/swipe support
         let touchStartX = 0;
         let touchEndX = 0;
         const galleryViewport = document.querySelector('.gallery__viewport');
@@ -206,7 +202,6 @@
             }, { passive: true });
         }
 
-        // Keyboard navigation
         document.addEventListener('keydown', function(e) {
             const gallerySection = document.getElementById('gallery');
             if (!gallerySection) return;
@@ -263,5 +258,265 @@
             }
         });
     }
+
+    // ============================================
+    // Menu Data & Rendering
+    // ============================================
+    const menuTable = [
+        {
+            id: 'sh_classic',
+            category: 'shawarma',
+            title: 'Шаурма Классическая',
+            description: 'Сочное мясо на углях, маринованные огурцы, помидоры, пекинская капуста и фирменный соус в армянском лаваше.',
+            image: 'assets/images/shawarma.png',
+            variations: [
+                { name: 'Курица', price: 270 },
+                { name: 'Свинина', price: 320 },
+                { name: 'Телятина', price: 340 }
+            ]
+        },
+        {
+            id: 'sh_xl',
+            category: 'shawarma',
+            title: 'Шаурма XL',
+            description: 'Для настоящих богатырей: двойная порция сочного мяса на углях с овощами и соусом.',
+            image: 'assets/images/xlshaurma.jpg',
+            variations: [
+                { name: 'Курица', price: 450 },
+                { name: 'Свинина', price: 500 },
+                { name: 'Телятина', price: 500 }
+            ]
+        },
+        {
+            id: 'sh_mini',
+            category: 'shawarma',
+            title: 'Шаурма Мини',
+            description: 'Уменьшенная порция любимой шаурмы. Быстрый и легкий перекус.',
+            image: 'assets/images/minishaurma.jpg',
+            variations: [
+                { name: 'Курица', price: 190 },
+                { name: 'Свинина', price: 210 },
+                { name: 'Говядина', price: 230 }
+            ]
+        },
+        {
+            id: 'sh_shrimp',
+            category: 'shawarma',
+            title: 'Шаурма с креветками',
+            description: 'Хрустящие креветки в панировке, свежие овощи, лук и фирменный соус в армянском лаваше.',
+            image: 'assets/images/shaurma-s-kerevtkami.webp',
+            price: 350
+        },
+        {
+            id: 'sh_arab',
+            category: 'shawarma',
+            title: 'Арабская в лепешке',
+            description: 'Пышная лепешка с нежным мясом, свежими овощами и чесночным соусом.',
+            image: 'assets/images/shawarma.png',
+            variations: [
+                { name: 'Курица', price: 350 },
+                { name: 'Свинина', price: 400 },
+                { name: 'Говядина', price: 400 }
+            ]
+        },
+        {
+            id: 'sh_lyulya',
+            category: 'shawarma',
+            title: 'Люля-кебаб',
+            description: 'Ароматный люля-кебаб из нежного фарша со специями.',
+            image: 'assets/images/lyulyakebab.webp',
+            variations: [
+                { name: 'В лаваше', price: 250 },
+                { name: 'С овощами', price: 300 }
+            ]
+        },
+        {
+            id: 'gr_turkish',
+            category: 'grill',
+            title: 'Шашлык по-турецки (100 гр.)',
+            description: 'Пряное нежное мясо с восточными специями.',
+            image: 'assets/images/shashlukpoturecki.jpg',
+            variations: [
+                { name: 'Курица', price: 250 },
+                { name: 'Люля', price: 280 },
+                { name: 'Говядина', price: 300 }
+            ]
+        },
+        {
+            id: 'gr_classic',
+            category: 'grill',
+            title: 'Шашлык на углях (100 гр.)',
+            description: 'Классический сочный шашлык с луком и соусом.',
+            image: 'assets/images/shashluk.webp',
+            variations: [
+                { name: 'Курица', price: 220 },
+                { name: 'Свинина', price: 300 },
+                { name: 'Телятина', price: 350 }
+            ]
+        },
+        {
+            id: 'gr_chicken',
+            category: 'grill',
+            title: 'Куры гриль',
+            description: 'Цельная курица гриль с аппетитной хрустящей корочкой.',
+            image: 'assets/images/chickengrill.jpg',
+            price: 400
+        },
+        {
+            id: 'sn_hotdog',
+            category: 'snacks',
+            title: 'Хот-дог',
+            description: 'Горячая сосиска с огурчиками, корейской морковью, кетчупом и горчицей.',
+            image: 'assets/images/hotdog.webp',
+            variations: [
+                { name: 'Классический', price: 150 },
+                { name: 'Двойной', price: 220 }
+            ]
+        },
+        {
+            id: 'sn_potato',
+            category: 'snacks',
+            title: 'Картофель',
+            description: 'Хрустящий золотистый картофель со специями.',
+            image: 'assets/images/potatofries.webp',
+            variations: [
+                { name: 'Фри', price: 150 },
+                { name: 'По-деревенски', price: 150 }
+            ]
+        },
+        {
+            id: 'sn_cheese',
+            category: 'snacks',
+            title: 'Сырные палочки',
+            description: 'Тягучий сыр в хрустящей золотистой панировке.',
+            image: 'assets/images/cheesesticks.jpg',
+            price: 170
+        },
+        {
+            id: 'sn_strips',
+            category: 'snacks',
+            title: 'Куриные стрипсы',
+            description: 'Нежные кусочки куриного филе в хрустящей панировке.',
+            image: 'assets/images/chickenstripes.jpg',
+            price: 150
+        },
+        {
+            id: 'sn_nuggets',
+            category: 'snacks',
+            title: 'Наггетсы',
+            description: 'Классические куриные наггетсы — мягкие внутри, хрустящие снаружи.',
+            image: 'assets/images/nuggets.jpg',
+            price: 150
+        },
+        {
+            id: 'sn_shrimps_klyar',
+            category: 'snacks',
+            title: 'Креветки в кляре',
+            description: 'Обжаренные креветки в панировке в нежном кляре.',
+            image: 'assets/images/shrimpclar.jpeg',
+            price: 250
+        },
+        {
+            id: 'dr_soft',
+            category: 'drinks',
+            title: 'Освежающие напитки',
+            description: 'Холодные газированные напитки, соки и чай.',
+            image: 'assets/images/soft-dr.png',
+            variations: [
+                { name: 'Добрый 0.5л', price: 90 },
+                { name: 'Rich Tea 0.5л', price: 90 },
+                { name: 'Pulpy 0.45л', price: 100 }
+            ]
+        },
+        {
+            id: 'dr_coffee',
+            category: 'drinks',
+            title: 'Кофе в ассортименте (0.3л)',
+            description: 'Эспрессо, макиято, капучино.. все из цельных зёрен.',
+            image: 'assets/images/coffee.png',
+            variations: [
+                { name: 'Капучино', price: 180 },
+                { name: 'Эспрессо', price: 180 },
+                { name: 'Макиято', price: 180 }
+            ]
+        },
+        {
+            id: 'dr_coffee',
+            category: 'drinks',
+            title: 'Чай (Greenfield)',
+            description: 'Стандартный чай от Greenfield.',
+            image: 'assets/images/tea.png',
+            price: 250
+        }
+    ];
+
+    function renderMenu(categoryFilter) {
+        const grid = document.getElementById('menu-grid');
+        if (!grid) return;
+        grid.innerHTML = '';
+
+        const filtered = categoryFilter === 'all'
+            ? menuTable
+            : menuTable.filter(item => item.category === categoryFilter);
+
+        filtered.forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'menu-card';
+
+            let selectedVarIndex = 0;
+            let currentPrice = item.price ? item.price : item.variations[selectedVarIndex].price;
+
+            let variationsHtml = '';
+            if (item.variations && item.variations.length > 0) {
+                variationsHtml = `<div class="card-variations">`;
+                item.variations.forEach((v, index) => {
+                    const activeClass = index === selectedVarIndex ? 'variation-btn--active' : '';
+                    variationsHtml += `<button class="variation-btn ${activeClass}" data-index="${index}">${v.name}</button>`;
+                });
+                variationsHtml += `</div>`;
+            }
+
+            card.innerHTML = `
+                <div class="menu-card__img-wrapper">
+                    <img src="${item.image}" alt="${item.title}" class="menu-card__img" loading="lazy">
+                </div>
+                <div class="menu-card__content">
+                    <h3 class="menu-card__title">${item.title}</h3>
+                    <p class="menu-card__desc">${item.description}</p>
+                    ${variationsHtml}
+                    <div class="menu-card__price"><span class="price-val">${currentPrice}</span> ₽</div>
+                </div>
+            `;
+
+            const varBtns = card.querySelectorAll('.variation-btn');
+            varBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    varBtns.forEach(b => b.classList.remove('variation-btn--active'));
+                    btn.classList.add('variation-btn--active');
+                    const index = parseInt(btn.getAttribute('data-index'));
+                    selectedVarIndex = index;
+                    const newPrice = item.variations[index].price;
+                    card.querySelector('.price-val').textContent = newPrice;
+                });
+            });
+
+            grid.appendChild(card);
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        if (document.getElementById('menu-grid')) {
+            renderMenu('all');
+
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('category-btn--active'));
+                    btn.classList.add('category-btn--active');
+                    const category = btn.getAttribute('data-category');
+                    renderMenu(category);
+                });
+            });
+        }
+    });
 
 })();
