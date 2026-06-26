@@ -263,8 +263,9 @@ img {
 
 .marquee-track {
     display: inline-flex;
-    gap: 36px;
+    /* убрать gap */
     will-change: transform;
+    backface-visibility: hidden;
 }
 
 .marquee-track span {
@@ -276,6 +277,7 @@ img {
     color: rgba(255, 255, 255, 0.07);
     user-select: none;
     flex-shrink: 0;
+    margin-right: 36px; /* вместо gap */
 }
 
 .marquee-row--left .marquee-track {
@@ -318,8 +320,9 @@ img {
 .products-track {
     display: inline-flex;
     align-items: center;
-    gap: clamp(40px, 6vw, 100px);
+    /* убрать gap */
     will-change: transform;
+    backface-visibility: hidden;
 }
 
 .products-track img {
@@ -328,6 +331,7 @@ img {
     filter: drop-shadow(0 10px 20px rgba(0,0,0,0.6));
     opacity: 0.92;
     flex-shrink: 0;
+    margin-right: clamp(40px, 6vw, 100px); /* вместо gap */
 }
 
 .hero__products-row--top .products-track {
