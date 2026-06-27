@@ -1,12 +1,12 @@
 /* ============================================
-   Говядо — Production JavaScript
+   Говядо — Unified Production JavaScript
    ============================================ */
 
 (function() {
     'use strict';
 
     // ============================================
-    // Mobile Navigation
+    // Global Mobile Navigation
     // ============================================
     const navToggle = document.querySelector('.nav__toggle');
     const header = document.querySelector('.header');
@@ -35,14 +35,15 @@
     }
 
     // ============================================
-    // Header scroll effect
+    // Header Scroll Styling Transformer
     // ============================================
     const headerEl = document.querySelector('.header');
     let ticking = false;
 
     function updateHeader() {
-        const scrollY = window.pageYOffset;
-        if (scrollY > 60) {
+        if (!headerEl) return;
+        const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+        if (scrollY > 50) {
             headerEl.classList.add('header--scrolled');
         } else {
             headerEl.classList.remove('header--scrolled');
@@ -55,10 +56,10 @@
             requestAnimationFrame(updateHeader);
             ticking = true;
         }
-    });
+    }, { passive: true });
 
     // ============================================
-    // Smooth scroll for anchor links
+    // Smooth Anchor Scroll Navigation
     // ============================================
     document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
         anchor.addEventListener('click', function(e) {
@@ -77,7 +78,7 @@
     });
 
     // ============================================
-    // Intersection Observer — fade-in animations
+    // Smooth Intersection Observer Animations
     // ============================================
     const fadeObserver = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {
@@ -88,18 +89,18 @@
         });
     }, {
         root: null,
-        rootMargin: '0px 0px -60px 0px',
-        threshold: 0.08
+        rootMargin: '0px 0px -40px 0px',
+        threshold: 0.05
     });
 
     const animElements = document.querySelectorAll(
-        '.menu__table-wrapper, .about__feature, .contacts__item, .contacts__map, .gallery__slider'
+        '.about__feature, .contacts__item, .contacts__map, .gallery__slider'
     );
 
     animElements.forEach(function(el) {
         el.style.opacity = '0';
-        el.style.transform = 'translateY(24px)';
-        el.style.transition = 'opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1)';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1), transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)';
         fadeObserver.observe(el);
     });
 
@@ -108,7 +109,7 @@
     document.head.appendChild(style);
 
     // ============================================
-    // Gallery Slider
+    // Hardware-Accelerated Gallery Slider
     // ============================================
     const galleryTrack = document.querySelector('.gallery__track');
     const gallerySlides = document.querySelectorAll('.gallery__slide');
@@ -129,13 +130,13 @@
                 goToSlide(index);
                 resetAutoPlay();
             });
-            dotsContainer.appendChild(dot);
+            if (dotsContainer) dotsContainer.appendChild(dot);
         });
 
         const dots = document.querySelectorAll('.gallery__dot');
 
         function updateSlider() {
-            galleryTrack.style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
+            galleryTrack.style.transform = 'translate3d(-' + (currentSlide * 100) + '%, 0, 0)';
             dots.forEach(function(dot, index) {
                 dot.classList.toggle('gallery__dot--active', index === currentSlide);
             });
@@ -191,7 +192,7 @@
             galleryViewport.addEventListener('touchend', function(e) {
                 touchEndX = e.changedTouches[0].screenX;
                 const diff = touchStartX - touchEndX;
-                if (Math.abs(diff) > 50) {
+                if (Math.abs(diff) > 40) {
                     if (diff > 0) {
                         nextSlide();
                     } else {
@@ -202,38 +203,24 @@
             }, { passive: true });
         }
 
-        document.addEventListener('keydown', function(e) {
-            const gallerySection = document.getElementById('gallery');
-            if (!gallerySection) return;
-            const rect = gallerySection.getBoundingClientRect();
-            if (rect.top < window.innerHeight && rect.bottom > 0) {
-                if (e.key === 'ArrowLeft') {
-                    prevSlide();
-                    resetAutoPlay();
-                } else if (e.key === 'ArrowRight') {
-                    nextSlide();
-                    resetAutoPlay();
-                }
-            }
-        });
-
         startAutoPlay();
     }
 
     // ============================================
-    // Active nav link on scroll
+    // Active Scroll Nav Tracker
     // ============================================
     const sections = document.querySelectorAll('section[id]');
-
     function updateActiveNav() {
-        const scrollY = window.pageYOffset + 120;
+        const scrollY = window.pageYOffset || document.documentElement.scrollTop;
         sections.forEach(function(section) {
-            const top = section.offsetTop;
+            const top = section.offsetTop - 120;
             const height = section.offsetHeight;
             const id = section.getAttribute('id');
             const link = document.querySelector('.nav__link[href="#' + id + '"]');
             if (link && scrollY >= top && scrollY < top + height) {
-                navLinks.forEach(function(l) { l.classList.remove('nav__link--active'); });
+                document.querySelectorAll('.nav__link').forEach(function(l) { 
+                    l.classList.remove('nav__link--active'); 
+                });
                 link.classList.add('nav__link--active');
             }
         });
@@ -241,33 +228,17 @@
 
     window.addEventListener('scroll', function() {
         requestAnimationFrame(updateActiveNav);
-    });
+    }, { passive: true });
 
     // ============================================
-    // Interactive Map Overlay
-    // ============================================
-    const mapContainer = document.querySelector('.contacts__map');
-    if (mapContainer) {
-        mapContainer.addEventListener('click', function() {
-            this.classList.add('contacts__map--interactive');
-        });
-
-        document.addEventListener('click', function(e) {
-            if (!mapContainer.contains(e.target)) {
-                mapContainer.classList.remove('contacts__map--interactive');
-            }
-        });
-    }
-
-    // ============================================
-    // Menu Data & Rendering
+    // Pure Read-Only Menu Render Logic (Dodo-Style)
     // ============================================
     const menuTable = [
         {
             id: 'sh_classic',
             category: 'shawarma',
             title: 'Шаурма Классическая',
-            description: 'Сочное мясо на углях, маринованные огурцы, помидоры, пекинская капуста и фирменный соус в армянском лаваше.',
+            description: 'Сочное мясо на углях, свежие огурцы, помидоры, капуста и фирменный белый соус в тонком лаваше.',
             image: 'assets/images/shawarma.png',
             variations: [
                 { name: 'Курица', price: 270 },
@@ -280,7 +251,7 @@
             category: 'shawarma',
             title: 'Шаурма XL',
             description: 'Для настоящих богатырей: двойная порция сочного мяса на углях с овощами и соусом.',
-            image: 'assets/images/xlshaurma.jpg',
+            image: 'assets/images/shawarma.png',
             variations: [
                 { name: 'Курица', price: 450 },
                 { name: 'Свинина', price: 500 },
@@ -292,7 +263,7 @@
             category: 'shawarma',
             title: 'Шаурма Мини',
             description: 'Уменьшенная порция любимой шаурмы. Быстрый и легкий перекус.',
-            image: 'assets/images/minishaurma.jpg',
+            image: 'assets/images/shawarma.png',
             variations: [
                 { name: 'Курица', price: 190 },
                 { name: 'Свинина', price: 210 },
@@ -303,8 +274,8 @@
             id: 'sh_shrimp',
             category: 'shawarma',
             title: 'Шаурма с креветками',
-            description: 'Хрустящие креветки в панировке, свежие овощи, лук и фирменный соус в армянском лаваше.',
-            image: 'assets/images/shaurma-s-kerevtkami.webp',
+            description: 'Королевские креветки, свежие овощи, жареный лук и белый соус в лаваше.',
+            image: 'assets/images/shawarma.png',
             price: 350
         },
         {
@@ -324,7 +295,7 @@
             category: 'shawarma',
             title: 'Люля-кебаб',
             description: 'Ароматный люля-кебаб из нежного фарша со специями.',
-            image: 'assets/images/lyulyakebab.webp',
+            image: 'assets/images/kebab.png',
             variations: [
                 { name: 'В лаваше', price: 250 },
                 { name: 'С овощами', price: 300 }
@@ -333,9 +304,9 @@
         {
             id: 'gr_turkish',
             category: 'grill',
-            title: 'Шашлык по-турецки (100 гр.)',
+            title: 'Шашлык по-турецки',
             description: 'Пряное нежное мясо с восточными специями.',
-            image: 'assets/images/shashlukpoturecki.jpg',
+            image: 'assets/images/kebab.png',
             variations: [
                 { name: 'Курица', price: 250 },
                 { name: 'Люля', price: 280 },
@@ -345,9 +316,9 @@
         {
             id: 'gr_classic',
             category: 'grill',
-            title: 'Шашлык на углях (100 гр.)',
+            title: 'Шашлык на углях',
             description: 'Классический сочный шашлык с луком и соусом.',
-            image: 'assets/images/shashluk.webp',
+            image: 'assets/images/kebab.png',
             variations: [
                 { name: 'Курица', price: 220 },
                 { name: 'Свинина', price: 300 },
@@ -359,7 +330,7 @@
             category: 'grill',
             title: 'Куры гриль',
             description: 'Цельная курица гриль с аппетитной хрустящей корочкой.',
-            image: 'assets/images/chickengrill.jpg',
+            image: 'assets/images/kebab.png',
             price: 400
         },
         {
@@ -367,7 +338,7 @@
             category: 'snacks',
             title: 'Хот-дог',
             description: 'Горячая сосиска с огурчиками, корейской морковью, кетчупом и горчицей.',
-            image: 'assets/images/hotdog.webp',
+            image: 'assets/images/fries.png',
             variations: [
                 { name: 'Классический', price: 150 },
                 { name: 'Двойной', price: 220 }
@@ -378,7 +349,7 @@
             category: 'snacks',
             title: 'Картофель',
             description: 'Хрустящий золотистый картофель со специями.',
-            image: 'assets/images/potatofries.webp',
+            image: 'assets/images/fries.png',
             variations: [
                 { name: 'Фри', price: 150 },
                 { name: 'По-деревенски', price: 150 }
@@ -389,7 +360,7 @@
             category: 'snacks',
             title: 'Сырные палочки',
             description: 'Тягучий сыр в хрустящей золотистой панировке.',
-            image: 'assets/images/cheesesticks.jpg',
+            image: 'assets/images/fries.png',
             price: 170
         },
         {
@@ -397,7 +368,7 @@
             category: 'snacks',
             title: 'Куриные стрипсы',
             description: 'Нежные кусочки куриного филе в хрустящей панировке.',
-            image: 'assets/images/chickenstripes.jpg',
+            image: 'assets/images/fries.png',
             price: 150
         },
         {
@@ -405,15 +376,15 @@
             category: 'snacks',
             title: 'Наггетсы',
             description: 'Классические куриные наггетсы — мягкие внутри, хрустящие снаружи.',
-            image: 'assets/images/nuggets.jpg',
+            image: 'assets/images/fries.png',
             price: 150
         },
         {
             id: 'sn_shrimps_klyar',
             category: 'snacks',
             title: 'Креветки в кляре',
-            description: 'Обжаренные креветки в панировке в нежном кляре.',
-            image: 'assets/images/shrimpclar.jpeg',
+            description: 'Обжаренные королевские креветки в нежном кляре.',
+            image: 'assets/images/fries.png',
             price: 250
         },
         {
@@ -421,7 +392,7 @@
             category: 'drinks',
             title: 'Освежающие напитки',
             description: 'Холодные газированные напитки, соки и чай.',
-            image: 'assets/images/soft-dr.png',
+            image: 'assets/images/tea.png',
             variations: [
                 { name: 'Добрый 0.5л', price: 90 },
                 { name: 'Rich Tea 0.5л', price: 90 },
@@ -429,34 +400,38 @@
             ]
         },
         {
-            id: 'dr_coffee',
+            id: 'dr_juice',
             category: 'drinks',
-            title: 'Кофе в ассортименте (0.3л)',
-            description: 'Эспрессо, макиято, капучино.. все из цельных зёрен.',
-            image: 'assets/images/coffee.png',
-            variations: [
-                { name: 'Капучино', price: 180 },
-                { name: 'Эспрессо', price: 180 },
-                { name: 'Макиято', price: 180 }
-            ]
+            title: 'Сок Добрый 1л',
+            description: 'Натуральный фруктовый сок в ассортименте.',
+            image: 'assets/images/tea.png',
+            price: 180
         },
         {
-            id: 'dr_coffee',
+            id: 'dr_water',
             category: 'drinks',
-            title: 'Чай (Greenfield)',
-            description: 'Стандартный чай от Greenfield.',
-            image: 'assets/images/tea.png',
-            price: 250
+            title: 'Вода Bonaqua 0.5л',
+            description: 'Питьевая вода без газа или слабогазированная.',
+            image: 'assets/images/coffee.png',
+            price: 80
+        },
+        {
+            id: 'dr_burn',
+            category: 'drinks',
+            title: 'Энергетик Burn',
+            description: 'Тонизирующий энергетический напиток.',
+            image: 'assets/images/coffee.png',
+            price: 140
         }
     ];
 
-    function renderMenu(categoryFilter) {
+    function renderMenuGrid(categoryFilter = 'all') {
         const grid = document.getElementById('menu-grid');
         if (!grid) return;
         grid.innerHTML = '';
 
-        const filtered = categoryFilter === 'all'
-            ? menuTable
+        const filtered = categoryFilter === 'all' 
+            ? menuTable 
             : menuTable.filter(item => item.category === categoryFilter);
 
         filtered.forEach(item => {
@@ -484,7 +459,10 @@
                     <h3 class="menu-card__title">${item.title}</h3>
                     <p class="menu-card__desc">${item.description}</p>
                     ${variationsHtml}
-                    <div class="menu-card__price"><span class="price-val">${currentPrice}</span> ₽</div>
+                    <div class="menu-card__footer">
+                        <div class="menu-card__price"><span class="price-val">${currentPrice}</span> ₽</div>
+                        <div class="menu-card__badge">${item.category === 'shawarma' || item.category === 'grill' ? 'На углях 🔥' : 'Вкусно ✨'}</div>
+                    </div>
                 </div>
             `;
 
@@ -494,7 +472,6 @@
                     varBtns.forEach(b => b.classList.remove('variation-btn--active'));
                     btn.classList.add('variation-btn--active');
                     const index = parseInt(btn.getAttribute('data-index'));
-                    selectedVarIndex = index;
                     const newPrice = item.variations[index].price;
                     card.querySelector('.price-val').textContent = newPrice;
                 });
@@ -504,18 +481,25 @@
         });
     }
 
+    // ============================================
+    // Initialize Category Filters
+    // ============================================
+    const catButtons = document.querySelectorAll('.category-btn');
+    if (catButtons.length > 0) {
+        catButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                catButtons.forEach(b => b.classList.remove('category-btn--active'));
+                btn.classList.add('category-btn--active');
+                const category = btn.getAttribute('data-category');
+                renderMenuGrid(category);
+            });
+        });
+    }
+
+    // Initialize Menu Grid on DOM Load
     document.addEventListener('DOMContentLoaded', () => {
         if (document.getElementById('menu-grid')) {
-            renderMenu('all');
-
-            document.querySelectorAll('.category-btn').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('category-btn--active'));
-                    btn.classList.add('category-btn--active');
-                    const category = btn.getAttribute('data-category');
-                    renderMenu(category);
-                });
-            });
+            renderMenuGrid('all');
         }
     });
 
