@@ -238,12 +238,12 @@
             id: 'sh_classic',
             category: 'shawarma',
             title: 'Шаурма Классическая',
-            description: 'Сочное мясо на углях, свежие огурцы, помидоры, капуста и фирменный белый соус в тонком лаваше.',
-            image: 'assets/images/shawarma.png',
+            description: 'Сочное мясо на углях, маринованные огурцы, помидоры, капуста и фирменный соус в тонком армянском лаваше.',
+            image: 'assets/images/shaur.webp',
             variations: [
-                { name: 'Курица', price: 270, image: 'assets/images/shawarma.png' },
-                { name: 'Свинина', price: 320, image: 'assets/images/shawarma.png' },
-                { name: 'Телятина', price: 340, image: 'assets/images/shawarma.png' }
+                { name: 'Курица', price: 270, image: 'assets/images/shaur.webp' },
+                { name: 'Свинина', price: 320, image: 'assets/images/shaur.webp' },
+                { name: 'Телятина', price: 340, image: 'assets/images/shaur.webp' }
             ]
         },
         {
@@ -251,11 +251,11 @@
             category: 'shawarma',
             title: 'Шаурма XL',
             description: 'Для настоящих богатырей: двойная порция сочного мяса на углях с овощами и соусом.',
-            image: 'assets/images/xlshaurma.jpg',
+            image: 'assets/images/xlshaurma.webp',
             variations: [
-                { name: 'Курица', price: 450, image: 'assets/images/xlshaurma.jpg' },
-                { name: 'Свинина', price: 500, image: 'assets/images/xlshaurma.jpg' },
-                { name: 'Телятина', price: 500, image: 'assets/images/xlshaurma.jpg' }
+                { name: 'Курица', price: 450, image: 'assets/images/xlshaurma.webp' },
+                { name: 'Свинина', price: 500, image: 'assets/images/xlshaurma.webp' },
+                { name: 'Телятина', price: 500, image: 'assets/images/xlshaurma.webp' }
             ]
         },
         {
@@ -263,18 +263,18 @@
             category: 'shawarma',
             title: 'Шаурма Мини',
             description: 'Уменьшенная порция любимой шаурмы. Быстрый и легкий перекус.',
-            image: 'assets/images/minishaurma.jpg',
+            image: 'assets/images/minishaurma.webp',
             variations: [
-                { name: 'Курица', price: 190, image: 'assets/images/minishaurma.jpg' },
-                { name: 'Свинина', price: 210, image: 'assets/images/minishaurma.jpg' },
-                { name: 'Говядина', price: 230, image: 'assets/images/minishaurma.jpg' }
+                { name: 'Курица', price: 190, image: 'assets/images/minishaurma.webp' },
+                { name: 'Свинина', price: 210, image: 'assets/images/minishaurma.webp' },
+                { name: 'Говядина', price: 230, image: 'assets/images/minishaurma.webp' }
             ]
         },
         {
             id: 'sh_shrimp',
             category: 'shawarma',
             title: 'Шаурма с креветками',
-            description: 'Королевские креветки, свежие овощи, жареный лук фри и фирменный соус в армянском лаваше.',
+            description: 'Панированные креветки, свежие овощи, жареный лук фри и фирменный соус в армянском лаваше.',
             image: 'assets/images/shaurma-s-kerevtkami.webp',
             price: 350
         },
@@ -283,7 +283,7 @@
             category: 'shawarma',
             title: 'Арабская в лепешке',
             description: 'Пышная лепешка с нежным мясом, свежими овощами и чесночным соусом.',
-            image: 'assets/images/shawarma.png',
+            image: 'assets/images/arab.webp',
             variations: [
                 { name: 'Курица', price: 350 },
                 { name: 'Свинина', price: 400 },
@@ -298,7 +298,7 @@
             image: 'assets/images/lyulyakebab.webp',
             variations: [
                 { name: 'В лаваше', price: 250, image: 'assets/images/lyulyakebab.webp' },
-                { name: 'С овощами', price: 300, image: 'assets/images/kebab.png' }
+                { name: 'С овощами', price: 300, image: 'assets/images/kebab.webp' }
             ]
         },
         {
@@ -306,7 +306,7 @@
             category: 'grill',
             title: 'Шашлык по-турецки',
             description: 'Подается в лепешке — сочный шашлык с фирменным соусом и репчатым луком с зеленью.',
-            image: 'assets/images/shashlukpoturecki.jpg',
+            image: 'assets/images/shashlukturecki.webp',
             variations: [
                 { name: 'Курица', price: 250 },
                 { name: 'Люля', price: 280 },
@@ -330,7 +330,7 @@
             category: 'grill',
             title: 'Куры гриль',
             description: 'Цельная курица гриль с аппетитной хрустящей корочкой.',
-            image: 'assets/images/chickengrill.jpg',
+            image: 'assets/images/chickengrill.webp',
             price: 400
         },
         {
@@ -352,7 +352,7 @@
             image: 'assets/images/potatofries.webp',
             variations: [
                 { name: 'Фри', price: 150, image: 'assets/images/potatofries.webp' },
-                { name: 'По-деревенски', price: 150, image: 'assets/images/ancientpotato.jpg' }
+                { name: 'По-деревенски', price: 150, image: 'assets/images/ancientpotato.webp' }
             ]
         },
         {
@@ -360,7 +360,7 @@
             category: 'snacks',
             title: 'Сырные палочки',
             description: 'Тягучий сыр в хрустящей золотистой панировке.',
-            image: 'assets/images/cheesesticks.jpg',
+            image: 'assets/images/cheesesticks.webp',
             price: 170
         },
         {
@@ -368,7 +368,7 @@
             category: 'snacks',
             title: 'Куриные стрипсы',
             description: 'Нежные кусочки куриного филе в хрустящей панировке.',
-            image: 'assets/images/chickenstripes.jpg',
+            image: 'assets/images/chickenstripes.webp',
             price: 150
         },
         {
@@ -376,7 +376,7 @@
             category: 'snacks',
             title: 'Наггетсы',
             description: 'Классические куриные наггетсы — мягкие внутри, хрустящие снаружи.',
-            image: 'assets/images/nuggets.jpg',
+            image: 'assets/images/nuggets.webp',
             price: 150
         },
         {
@@ -384,7 +384,7 @@
             category: 'snacks',
             title: 'Креветки в кляре',
             description: 'Обжаренные королевские креветки в нежном кляре.',
-            image: 'assets/images/shrimpclar.jpeg',
+            image: 'assets/images/shrimpclar.webp',
             price: 250
         },
         {
@@ -392,7 +392,7 @@
             category: 'drinks',
             title: 'Освежающие напитки',
             description: 'Холодные газированные напитки, соки и чай в ассортименте.',
-            image: 'assets/images/soft-dr.png',
+            image: 'assets/images/soft-dr.webp',
             variations: [
                 { name: 'Добрый 0.5л', price: 90 },
                 { name: 'Rich Tea 0.5л', price: 90 },
@@ -405,7 +405,7 @@
             category: 'drinks',
             title: 'Кофе в ассортименте',
             description: 'Ароматнейшее зерновое кофе: эспрессо, американо, капучино, латте и эспрессо макиато. Сварено из отборных цельных зёрен.',
-            image: 'assets/images/coffee.png',
+            image: 'assets/images/coffee.webp',
             variations: [
                 { name: 'Эспрессо', price: 80 },
                 { name: 'Американо', price: 120 },
@@ -419,7 +419,7 @@
             category: 'drinks',
             title: 'Чай с лимоном от Гринфилда',
             description: 'Ароматный горячий чай от Greenfield с добавлением сочного лимона.',
-            image: 'assets/images/tea.png',
+            image: 'assets/images/tea.webp',
             price: 40
         }
     ];
