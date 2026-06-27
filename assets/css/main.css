@@ -800,51 +800,46 @@ img {
     flex-grow: 1;
 }
 
-/* Choice Tabs Container */
+/* ============================================
+   Фикс переноса вариаций в карточках меню
+   ============================================ */
+
 .card-variations {
-    background: var(--color-bg);
-    border-radius: var(--radius-sm);
-    padding: 3px;
     display: flex;
-    gap: 4px;
-    border: 1px solid var(--color-border);
-    margin-bottom: 16px;
+    flex-wrap: wrap;          /* Перенос на новую строку */
+    gap: 6px;                 /* Расстояние между кнопками */
+    margin-top: 12px;
 }
 
 .variation-btn {
-    font-family: var(--font-main);
-    flex: 1;
-    text-align: center;
-    font-size: 0.725rem;
-    font-weight: 700;
-    padding: 8px 6px;
-    border-radius: 6px;
-    border: none;
-    background: transparent;
-    color: var(--color-text-muted);
+    flex: 0 1 auto;           /* Не растягиваться, но сжиматься при необходимости */
+    min-width: 0;
+    padding: 6px 10px;
+    font-size: 13px;
+    line-height: 1.2;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
     cursor: pointer;
-    transition: all var(--transition-fast);
-    white-space: nowrap;
-}
-
-.variation-btn:hover {
-    color: var(--color-text);
+    white-space: nowrap;      /* Чтобы текст не переносился внутри кнопки */
+    transition: all 0.2s ease;
 }
 
 .variation-btn--active {
-    background: var(--color-surface-hover);
-    color: var(--color-text) !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-    font-weight: 800;
+    background: #e63946;      /* Ваш акцентный цвет */
+    border-color: #e63946;
+    color: #fff;
 }
 
-/* Card Bottom pricing & info */
+/* Если цена и бейдж тоже начинают налезать друг на друга */
 .menu-card__footer {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    gap: 12px;
-    margin-top: auto;
+    gap: 8px;
+    margin-top: 14px;
 }
 
 .menu-card__price {
