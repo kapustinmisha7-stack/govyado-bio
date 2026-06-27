@@ -241,9 +241,9 @@
             description: 'Сочное мясо на углях, свежие огурцы, помидоры, капуста и фирменный белый соус в тонком лаваше.',
             image: 'assets/images/shawarma.png',
             variations: [
-                { name: 'Курица', price: 270 },
-                { name: 'Свинина', price: 320 },
-                { name: 'Телятина', price: 340 }
+                { name: 'Курица', price: 270, image: 'assets/images/shawarma.png' },
+                { name: 'Свинина', price: 320, image: 'assets/images/shawarma.png' },
+                { name: 'Телятина', price: 340, image: 'assets/images/shawarma.png' }
             ]
         },
         {
@@ -251,11 +251,11 @@
             category: 'shawarma',
             title: 'Шаурма XL',
             description: 'Для настоящих богатырей: двойная порция сочного мяса на углях с овощами и соусом.',
-            image: 'assets/images/shawarma.png',
+            image: 'assets/images/xlshaurma.jpg',
             variations: [
-                { name: 'Курица', price: 450 },
-                { name: 'Свинина', price: 500 },
-                { name: 'Телятина', price: 500 }
+                { name: 'Курица', price: 450, image: 'assets/images/xlshaurma.jpg' },
+                { name: 'Свинина', price: 500, image: 'assets/images/xlshaurma.jpg' },
+                { name: 'Телятина', price: 500, image: 'assets/images/xlshaurma.jpg' }
             ]
         },
         {
@@ -263,19 +263,19 @@
             category: 'shawarma',
             title: 'Шаурма Мини',
             description: 'Уменьшенная порция любимой шаурмы. Быстрый и легкий перекус.',
-            image: 'assets/images/shawarma.png',
+            image: 'assets/images/minishaurma.jpg',
             variations: [
-                { name: 'Курица', price: 190 },
-                { name: 'Свинина', price: 210 },
-                { name: 'Говядина', price: 230 }
+                { name: 'Курица', price: 190, image: 'assets/images/minishaurma.jpg' },
+                { name: 'Свинина', price: 210, image: 'assets/images/minishaurma.jpg' },
+                { name: 'Говядина', price: 230, image: 'assets/images/minishaurma.jpg' }
             ]
         },
         {
             id: 'sh_shrimp',
             category: 'shawarma',
             title: 'Шаурма с креветками',
-            description: 'Королевские креветки, свежие овощи, жареный лук и белый соус в лаваше.',
-            image: 'assets/images/shawarma.png',
+            description: 'Королевские креветки, свежие овощи, жареный лук фри и фирменный соус в армянском лаваше.',
+            image: 'assets/images/shaurma-s-kerevtkami.webp',
             price: 350
         },
         {
@@ -295,18 +295,18 @@
             category: 'shawarma',
             title: 'Люля-кебаб',
             description: 'Ароматный люля-кебаб из нежного фарша со специями.',
-            image: 'assets/images/kebab.png',
+            image: 'assets/images/lyulyakebab.webp',
             variations: [
-                { name: 'В лаваше', price: 250 },
-                { name: 'С овощами', price: 300 }
+                { name: 'В лаваше', price: 250, image: 'assets/images/lyulyakebab.webp' },
+                { name: 'С овощами', price: 300, image: 'assets/images/kebab.png' }
             ]
         },
         {
             id: 'gr_turkish',
             category: 'grill',
             title: 'Шашлык по-турецки',
-            description: 'Пряное нежное мясо с восточными специями.',
-            image: 'assets/images/kebab.png',
+            description: 'Подается в лепешке — сочный шашлык с фирменным соусом и репчатым луком с зеленью.',
+            image: 'assets/images/shashlukpoturecki.jpg',
             variations: [
                 { name: 'Курица', price: 250 },
                 { name: 'Люля', price: 280 },
@@ -317,8 +317,8 @@
             id: 'gr_classic',
             category: 'grill',
             title: 'Шашлык на углях',
-            description: 'Классический сочный шашлык с луком и соусом.',
-            image: 'assets/images/kebab.png',
+            description: 'Классический, сочный шашлык. Подается с луком и в лаваше в комплекте.',
+            image: 'assets/images/shashluk.webp',
             variations: [
                 { name: 'Курица', price: 220 },
                 { name: 'Свинина', price: 300 },
@@ -330,15 +330,15 @@
             category: 'grill',
             title: 'Куры гриль',
             description: 'Цельная курица гриль с аппетитной хрустящей корочкой.',
-            image: 'assets/images/kebab.png',
+            image: 'assets/images/chickengrill.jpg',
             price: 400
         },
         {
             id: 'sn_hotdog',
             category: 'snacks',
             title: 'Хот-дог',
-            description: 'Горячая сосиска с огурчиками, корейской морковью, кетчупом и горчицей.',
-            image: 'assets/images/fries.png',
+            description: 'Горячая сосиска с огурчиком, кетчупом, горчицей и жареным луком фри.',
+            image: 'assets/images/hotdog.webp',
             variations: [
                 { name: 'Классический', price: 150 },
                 { name: 'Двойной', price: 220 }
@@ -349,10 +349,10 @@
             category: 'snacks',
             title: 'Картофель',
             description: 'Хрустящий золотистый картофель со специями.',
-            image: 'assets/images/fries.png',
+            image: 'assets/images/potatofries.webp',
             variations: [
-                { name: 'Фри', price: 150 },
-                { name: 'По-деревенски', price: 150 }
+                { name: 'Фри', price: 150, image: 'assets/images/potatofries.webp' },
+                { name: 'По-деревенски', price: 150, image: 'assets/images/ancientpotato.jpg' }
             ]
         },
         {
@@ -360,7 +360,7 @@
             category: 'snacks',
             title: 'Сырные палочки',
             description: 'Тягучий сыр в хрустящей золотистой панировке.',
-            image: 'assets/images/fries.png',
+            image: 'assets/images/cheesesticks.jpg',
             price: 170
         },
         {
@@ -368,7 +368,7 @@
             category: 'snacks',
             title: 'Куриные стрипсы',
             description: 'Нежные кусочки куриного филе в хрустящей панировке.',
-            image: 'assets/images/fries.png',
+            image: 'assets/images/chickenstripes.jpg',
             price: 150
         },
         {
@@ -376,7 +376,7 @@
             category: 'snacks',
             title: 'Наггетсы',
             description: 'Классические куриные наггетсы — мягкие внутри, хрустящие снаружи.',
-            image: 'assets/images/fries.png',
+            image: 'assets/images/nuggets.jpg',
             price: 150
         },
         {
@@ -384,44 +384,43 @@
             category: 'snacks',
             title: 'Креветки в кляре',
             description: 'Обжаренные королевские креветки в нежном кляре.',
-            image: 'assets/images/fries.png',
+            image: 'assets/images/shrimpclar.jpeg',
             price: 250
         },
         {
             id: 'dr_soft',
             category: 'drinks',
             title: 'Освежающие напитки',
-            description: 'Холодные газированные напитки, соки и чай.',
-            image: 'assets/images/tea.png',
+            description: 'Холодные газированные напитки, соки и чай в ассортименте.',
+            image: 'assets/images/soft-dr.png',
             variations: [
                 { name: 'Добрый 0.5л', price: 90 },
                 { name: 'Rich Tea 0.5л', price: 90 },
+                { name: 'Черноголовка 0.5л', price: 90 },
                 { name: 'Pulpy 0.45л', price: 100 }
             ]
         },
         {
-            id: 'dr_juice',
+            id: 'dr_coffee',
             category: 'drinks',
-            title: 'Сок Добрый 1л',
-            description: 'Натуральный фруктовый сок в ассортименте.',
+            title: 'Кофе в ассортименте',
+            description: 'Ароматнейшее зерновое кофе: эспрессо, американо, капучино, латте и эспрессо макиато. Сварено из отборных цельных зёрен.',
+            image: 'assets/images/coffee.png',
+            variations: [
+                { name: 'Эспрессо', price: 80 },
+                { name: 'Американо', price: 120 },
+                { name: 'Капучино', price: 150 },
+                { name: 'Латте', price: 180 },
+                { name: 'Макиато', price: 200 }
+            ]
+        },
+        {
+            id: 'dr_tea',
+            category: 'drinks',
+            title: 'Чай с лимоном от Гринфилда',
+            description: 'Ароматный горячий чай от Greenfield с добавлением сочного лимона.',
             image: 'assets/images/tea.png',
-            price: 180
-        },
-        {
-            id: 'dr_water',
-            category: 'drinks',
-            title: 'Вода Bonaqua 0.5л',
-            description: 'Питьевая вода без газа или слабогазированная.',
-            image: 'assets/images/coffee.png',
-            price: 80
-        },
-        {
-            id: 'dr_burn',
-            category: 'drinks',
-            title: 'Энергетик Burn',
-            description: 'Тонизирующий энергетический напиток.',
-            image: 'assets/images/coffee.png',
-            price: 140
+            price: 40
         }
     ];
 
@@ -440,6 +439,7 @@
 
             let selectedVarIndex = 0;
             let currentPrice = item.price ? item.price : item.variations[selectedVarIndex].price;
+            let currentImage = item.price ? item.image : (item.variations[selectedVarIndex].image || item.image);
 
             let variationsHtml = '';
             if (item.variations && item.variations.length > 0) {
@@ -453,7 +453,7 @@
 
             card.innerHTML = `
                 <div class="menu-card__img-wrapper">
-                    <img src="${item.image}" alt="${item.title}" class="menu-card__img" loading="lazy">
+                    <img src="${currentImage}" alt="${item.title}" class="menu-card__img" loading="lazy">
                 </div>
                 <div class="menu-card__content">
                     <h3 class="menu-card__title">${item.title}</h3>
@@ -466,14 +466,28 @@
                 </div>
             `;
 
+            // Обработка клика по кнопкам-вариациям (изменение цены и динамическая смена изображений)
             const varBtns = card.querySelectorAll('.variation-btn');
+            const cardImg = card.querySelector('.menu-card__img');
             varBtns.forEach(btn => {
                 btn.addEventListener('click', () => {
                     varBtns.forEach(b => b.classList.remove('variation-btn--active'));
                     btn.classList.add('variation-btn--active');
                     const index = parseInt(btn.getAttribute('data-index'));
+                    
+                    // Обновление цены
                     const newPrice = item.variations[index].price;
                     card.querySelector('.price-val').textContent = newPrice;
+
+                    // Умная смена картинки (если у вариации прописано собственное изображение)
+                    const specImage = item.variations[index].image;
+                    if (specImage && cardImg) {
+                        cardImg.style.opacity = '0';
+                        setTimeout(() => {
+                            cardImg.src = specImage;
+                            cardImg.style.opacity = '1';
+                        }, 150);
+                    }
                 });
             });
 
