@@ -416,7 +416,7 @@
             category: 'drinks',
             title: 'Освежающие напитки',
             description: 'Холодные газированные напитки, соки и чай в ассортименте.',
-            image: 'assets/images/soft-dr.webp',
+            image: 'assets/images/drinks.png',
             variations: [
                 { name: 'Добрый 0.5л', price: 90 },
                 { name: 'Rich Tea 0.5л', price: 90 },
@@ -441,8 +441,8 @@
         {
             id: 'dr_tea',
             category: 'drinks',
-            title: 'Чай с лимоном от Гринфилда',
-            description: 'Ароматный горячий чай от Greenfield с добавлением сочного лимона.',
+            title: 'Чай от Гринфилда',
+            description: 'Ароматный горячий чай от Greenfield + добавление сочного лимона.',
             image: 'assets/images/tea.webp',
             price: 40
         }
