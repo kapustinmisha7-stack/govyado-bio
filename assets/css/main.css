@@ -131,14 +131,14 @@ img {
 
 .logo__img {
     display: block;
-    height: 48px;
-    width: auto;
+    width: 140px;
+    height: auto;
     max-width: 220px;
-    transition: height var(--transition-base);
+    transition: width var(--transition-base);
 }
 
 .header--scrolled .logo__img {
-    height: 40px;
+    width: 120px;
 }
 
 .nav {
