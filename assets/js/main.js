@@ -461,6 +461,7 @@
             category: 'combos',
             title: 'Картофель фри + мини-сосиски и соус томатный',
             description: 'Очень вкусное комбо на обед!',
+            image: 'assets/images/combo1.webp',
             price: 300
         },
         {
@@ -468,6 +469,7 @@
             category: 'combos',
             title: 'Картофельные конусы + куриный попкорн и соус',
             description: 'Киношное комбо: будто на фильм!',
+            image: 'assets/images/combo2.webp',
             price: 300
         }
     ];
