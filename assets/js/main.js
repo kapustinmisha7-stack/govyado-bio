@@ -321,8 +321,8 @@
             image: 'assets/images/shashluk.webp',
             variations: [
                 { name: 'Курица', price: 220 },
-                { name: 'Свинина', price: 300 },
-                { name: 'Телятина', price: 350 }
+                { name: 'Свинина', price: 300, image: 'assets/images/shashluksvinina.webp' },
+                { name: 'Телятина', price: 350, image: 'assets/images/shashluktelyatina.webp' }
             ]
         },
         {
@@ -382,7 +382,7 @@
         {
             id: 'sn_potato_cones',
             category: 'snacks',
-            title: 'Картофельные конусы',
+            title: 'Картофельные конусы (100 гр.)',
             description: 'Хрустящие картофельные конусы с аппетитной панировкой.',
             image: 'assets/images/potatocones.webp',
             price: 150
@@ -398,7 +398,7 @@
         {
             id: 'sn_chickenpopcorn',
             category: 'snacks',
-            title: 'Куриные попкорны',
+            title: 'Куриные попкорны (100 гр.)',
             description: 'Нежные кусочки куриного филе в хрустящей панировке.',
             image: 'assets/images/chickenpopcorn.webp',
             price: 150
@@ -410,6 +410,14 @@
             description: 'Обжаренные королевские креветки в нежном кляре.',
             image: 'assets/images/shrimpclar.webp',
             price: 250
+        },
+        {
+            id: 'sn_minicheb',
+            category: 'snacks',
+            title: 'Мини-чебуреки (5 шт.)',
+            description: 'Хрустящее тесто снаружи, внутри курица с зеленью.',
+            image: 'assets/images/minicheburek.webp',
+            price: 170
         },
         {
             id: 'dr_soft',
@@ -445,6 +453,22 @@
             description: 'Ароматный горячий чай от Greenfield с добавлением сочного лимона.',
             image: 'assets/images/tea.webp',
             price: 40
+        },
+
+        // КОМБО
+        {
+            id: 'cm_fss',
+            category: 'combos',
+            title: 'Картофель фри + мини-сосиски и соус томатный',
+            description: 'Очень вкусное комбо на обед!',
+            price: 300
+        },
+        {
+            id: 'cm_pcs',
+            category: 'combos',
+            title: 'Картофельные конусы + куриный попкорн и соус',
+            description: 'Киношное комбо: будто на фильм!',
+            price: 300
         }
     ];
 
